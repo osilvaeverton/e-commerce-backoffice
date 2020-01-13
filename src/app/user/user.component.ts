@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,9 +17,17 @@ export class UserComponent implements OnInit {
 
   displayedColumns = [ 'Id', 'Name' ];
 
-  constructor() { }
+  constructor(
+    private userService: UserService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.getUsers().subscribe({
+      next(user) {
+        this.users.push(user);
+      }
+    });
+  }
 
   createUser() {
     this.users.push({

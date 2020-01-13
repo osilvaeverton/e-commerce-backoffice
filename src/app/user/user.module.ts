@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './user.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,7 +19,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   exports: [UserComponent]
 })
